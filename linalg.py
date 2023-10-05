@@ -33,10 +33,11 @@ def complicated_matrix_function(M, a, b):
     Returns:
         out: numpy matrix of shape (x, 1).
     """
-    out = None
-    ### YOUR CODE HERE
-    pass
-    ### END YOUR CODE
+    ab = dot_product(a, b)
+    abM = ab[0][0] * M
+    if ab.shape != (1, 1):
+        abM = dot_product(ab, M)
+    out = dot_product(abM, a.T)
 
     return out
 
