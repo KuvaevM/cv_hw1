@@ -15,10 +15,7 @@ def dot_product(a, b):
         out: numpy array of shape (x, x) (scalar if x = 1)
     """
 
-    out = None
-    ### YOUR CODE HERE
-    pass
-    ### END YOUR CODE
+    out = np.dot(a, b)
     return out
 
 
