@@ -92,11 +92,8 @@ def eigen_decomp(M):
         w: numpy array of shape (m, m) such that the column v[:,i] is the eigenvector corresponding to the eigenvalue w[i].
         v: Matrix where every column is an eigenvector.
     """
-    w = None
-    v = None
-    ### YOUR CODE HERE
-    pass
-    ### END YOUR CODE
+    w, v = np.linalg.eig(M)
+
     return w, v
 
 
@@ -117,9 +114,11 @@ def get_eigen_values_and_vectors(M, k):
         eigenvectors: list of length k containing the top k eigenvectors
             of shape (m,)
     """
-    eigenvalues = []
-    eigenvectors = []
-    ### YOUR CODE HERE
-    pass
-    ### END YOUR CODE
-    return eigenvalues, eigenvectors
+    eigenvalues, eigenvectors = eigen_decomp(M)
+
+    indices = np.argsort(np.abs(eigenvalues))[::-1][:k]
+
+    top_eigenvalues = [eigenvalues[i] for i in indices]
+    top_eigenvectors = [eigenvectors[:, i] for i in indices]
+
+    return top_eigenvalues, top_eigenvectors
