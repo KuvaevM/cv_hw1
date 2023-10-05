@@ -56,12 +56,7 @@ def svd(M):
         s: numpy array of shape (k).
         v: numpy array of shape (n, n).
     """
-    u = None
-    s = None
-    v = None
-    ### YOUR CODE HERE
-    pass
-    ### END YOUR CODE
+    u, s, v = np.linalg.svd(M)
 
     return u, s, v
 
@@ -79,10 +74,9 @@ def get_singular_values(M, k):
     Returns:
         singular_values: array of shape (k)
     """
-    singular_values = None
-    ### YOUR CODE HERE
-    pass
-    ### END YOUR CODE
+    _, s, _ = svd(M)
+    singular_values = s[:k]
+
     return singular_values
 
 
