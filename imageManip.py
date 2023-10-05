@@ -70,11 +70,15 @@ def rgb_exclusion(image, channel):
         out: numpy array of shape(image_height, image_width, 3).
     """
 
-    out = None
-
-    ### YOUR CODE HERE
-    pass
-    ### END YOUR CODE
+    out = np.copy(image)
+    channel_index = None
+    if channel == "R":
+        channel_index = 0
+    elif channel == "G":
+        channel_index = 1
+    elif channel == "B":
+        channel_index = 2
+    out[:, :, channel_index] = 0
 
     return out
 
@@ -112,11 +116,15 @@ def hsv_decomposition(image, channel='H'):
     """
 
     hsv = color.rgb2hsv(image)
-    out = None
 
-    ### YOUR CODE HERE
-    pass
-    ### END YOUR CODE
+    channel_index = None
+    if channel == "H":
+        channel_index = 0
+    elif channel == "S":
+        channel_index = 1
+    elif channel == "V":
+        channel_index = 2
+    out = hsv[:, :, channel_index]
 
     return out
 
