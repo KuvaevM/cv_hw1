@@ -16,12 +16,7 @@ def load(image_path):
     Returns:
         out: numpy array of shape(image_height, image_width, 3).
     """
-    out = None
-
-    ### YOUR CODE HERE
-    # Use skimage io.imread
-    pass
-    ### END YOUR CODE
+    out = io.imread(image_path)
 
     # Let's convert the image to be between the correct range.
     out = out.astype(np.float64) / 255
@@ -42,11 +37,7 @@ def dim_image(image):
         out: numpy array of shape(image_height, image_width, 3).
     """
 
-    out = None
-
-    ### YOUR CODE HERE
-    pass
-    ### END YOUR CODE
+    out = 0.5 * np.power(image, 2)
 
     return out
 
@@ -63,11 +54,7 @@ def convert_to_grey_scale(image):
     Returns:
         out: numpy array of shape(image_height, image_width).
     """
-    out = None
-
-    ### YOUR CODE HERE
-    pass
-    ### END YOUR CODE
+    out = color.rgb2gray(image)
 
     return out
 
